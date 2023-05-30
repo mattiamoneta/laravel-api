@@ -1,0 +1,41 @@
+@import '~bootstrap/scss/bootstrap';
+
+
+
+/* 
+    Homepage 
+*/
+
+.pill-sup {
+    font-size: .5rem;
+}
+
+.small-btn {
+    font-size: .7rem;
+}
+
+
+/* 
+    Scrollbar 
+*/
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
