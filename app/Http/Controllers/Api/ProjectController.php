@@ -9,11 +9,22 @@ use App\Models\Project;
 class ProjectController extends Controller
 {
     public function index(){
-        $projects = Project::with('technologies')->paginate(3);
+        $projects = Project::with('technologies')->paginate(8);
 
         return response()->json([
             'success' => true,
             'results' => $projects
+        ]);
+
+    }
+
+    public function show($slug){
+
+        $project = Project::where('slug', $slug);
+
+        return response()->json([
+            'success' => true,
+            'results' => $project
         ]);
 
     }
