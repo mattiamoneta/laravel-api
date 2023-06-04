@@ -93,14 +93,18 @@ class ProjectController extends Controller
             return back()->withInput()->withErrors(['name' => 'ERRORE: Slug già utilizzato.']);
         }
 
+   
+
 
         if($request->hasFile('thumb')){
+
+
 
             if($project->thumb){
                 Storage::delete($project->thumb);
             }
 
-            Storage::put('user_uploads', $data['thumb']);
+            $path = Storage::put('user_uploads', $data['thumb']);
             $project->thumb = $path;
 
         }

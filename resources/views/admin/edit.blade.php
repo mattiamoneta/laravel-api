@@ -9,7 +9,7 @@
         <div class="col">
             <div class="card bg-light">
                 <div class="card-body">
-                    <form method="post" action="{{ route('admin.projects.update', $project) }}">
+                    <form method="post" action="{{ route('admin.projects.update', $project) }}" enctype="multipart/form-data">
 
                         @csrf
 
