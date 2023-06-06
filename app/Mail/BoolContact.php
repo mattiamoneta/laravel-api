@@ -13,45 +13,32 @@ class BoolContact extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct()
+
+    public $lead;
+
+    public function __construct($_lead)
     {
-        //
+        $this->lead = $_lead;
     }
 
-    /**
-     * Get the message envelope.
-     *
-     * @return \Illuminate\Mail\Mailables\Envelope
-     */
+
     public function envelope()
     {
         return new Envelope(
             subject: 'Bool Contact',
+            replyTo: $this->lead->address
         );
     }
 
-    /**
-     * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
-     */
+
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'mails.new-contact',
         );
     }
 
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array
-     */
+
     public function attachments()
     {
         return [];
