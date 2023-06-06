@@ -15,12 +15,16 @@ class LeadController extends Controller
 
         $newLead = new Lead();
         $newLead->name = $inputData['name'];
-        $newLead->object = $inputData['object'];
+        $newLead->email = $inputData['email'];
         $newLead->message = $inputData['message'];
         $newLead->save();
 
-        Mail::to('example@mail.com')->send(new BoolContact);
+        $contactObject = new BoolContact($newLead);
+        Mail::to('in.mattiamoneta@gmail.com')->send($contactObject);
     
+        return response()->json([
+                'success' => true
+            ]);
 
     }
 }
